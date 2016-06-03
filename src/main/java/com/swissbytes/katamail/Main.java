@@ -1,7 +1,7 @@
 package com.swissbytes.katamail;
 
 /**
- * Created by roberto on 3/6/2016.
+ * Created by team on 3/6/2016.
  */
 public class Main {
 
