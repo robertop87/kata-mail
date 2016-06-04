@@ -11,25 +11,27 @@ public class MailServer {
     private List clientes = new ArrayList<String>();
 
     public boolean aceptarConexion(String nombreCliente) {
-        nombreCliente = nombreCliente.trim();
-        nombreCliente = nombreCliente.toUpperCase();
-        if(nombreCliente.isEmpty() ||
-                clientes.contains(nombreCliente))
+        nombreCliente = normalizarNombre(nombreCliente);
+        if (nombreCliente.isEmpty() ||
+                estaConectado(nombreCliente))
             return false;
+
         clientes.add(nombreCliente);
         return true;
     }
 
     public boolean estaConectado(String nombreCliente) {
-        nombreCliente = nombreCliente.trim();
-        nombreCliente = nombreCliente.toUpperCase();
-        if(!nombreCliente.isEmpty() &&
-                clientes.contains(nombreCliente)  )
-            return true;
-        return false;
+        nombreCliente = normalizarNombre(nombreCliente);
+        return clientes.contains(nombreCliente);
     }
 
     public int cantidadConectados() {
         return clientes.size();
+    }
+
+    private String normalizarNombre(String nombre) {
+        nombre = nombre.trim();
+        nombre = nombre.toUpperCase();
+        return nombre;
     }
 }
