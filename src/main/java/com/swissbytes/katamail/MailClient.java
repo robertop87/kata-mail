@@ -5,13 +5,16 @@ package com.swissbytes.katamail;
  */
 public class MailClient {
     private String nombre;
+
     public MailClient(String nombre) {
        this.nombre = nombre;
     }
+
     public MailClient() {
         this.nombre = "Prueba";
     }
-    public boolean ConectarA(MailServer server) {
+
+    public boolean conectarA(MailServer server) {
         return server.aceptarConexion(nombre);
     }
 }

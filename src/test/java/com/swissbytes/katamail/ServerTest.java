@@ -29,16 +29,13 @@ public class ServerTest {
         server.aceptarConexion("thunderbird");
         boolean conectado = server.estaConectado("thunderbird");
         assertTrue(conectado);
-
     }
 
     @Test
     public void testVerificarEstadoDeConexionDelClienteNoConectado(){
         MailServer server = new MailServer();
-
-        boolean noconectado = server.estaConectado("thunderbird");
-        assertFalse(noconectado);
-
+        boolean conectado = server.estaConectado("thunderbird");
+        assertFalse(conectado);
     }
 
     @Test
@@ -64,18 +61,16 @@ public class ServerTest {
     }
 
     @Test
-    public void testCantidadDeClientesConectadosigualcero()
+    public void testNoHayClientesConectados()
     {
-
         MailServer server = new MailServer();
         int conectado = server.cantidadConectados();
         assertEquals(0, conectado);
     }
 
     @Test
-    public void testCantidadDeConectadosConUnClienteRegistrado()
+    public void testUnClienteConectado()
     {
-
         MailServer server = new MailServer();
         server.aceptarConexion("Thunderbird");
         int conectado = server.cantidadConectados();
